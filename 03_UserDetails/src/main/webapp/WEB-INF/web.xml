@@ -9,4 +9,27 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+ 
+  	<servlet>  	
+		<servlet-name>ReadServletInitParams</servlet-name>
+		<servlet-class>com.saswat.servlets.ReadServletInitParams</servlet-class>
+		<init-param>
+			<param-name>dbUrl</param-name>
+			<param-value>jdbc:mysql://localhost:3306/udemy</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dbUsername </param-name>
+			<param-value>root</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dbPassword</param-name>
+			<param-value>root</param-value>
+		</init-param>		
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ReadServletInitParams</servlet-name>
+		<url-pattern>/readInit</url-pattern>
+	</servlet-mapping> 
+ 
 </web-app>
