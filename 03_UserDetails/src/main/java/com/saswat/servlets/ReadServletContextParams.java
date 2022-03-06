@@ -6,8 +6,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Enumeration;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -15,21 +17,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest; 
 import javax.servlet.http.HttpServletResponse;
 
-//note - init params can also be configured by web.xml file see web.xml for more details (url - readInit)
+//note - context params is configured by web.xml file see web.xml for more details (url - /readContext)
 
-//@WebServlet(urlPatterns = "/readServletInitParams", initParams ={ @WebInitParam(name = "dbUrl", value = "jdbc:mysql://localhost:3306/udemy"),
-//																  @WebInitParam(name = "dbUsername", value = "root"), 
-//																  @WebInitParam(name = "dbPassword", value = "root")} )
-public class ReadServletInitParams extends HttpServlet {
+public class ReadServletContextParams extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection con;
 	
     public void init(ServletConfig config) {
 			try {
+				ServletContext context = config.getServletContext();
+				
+//				example of ServletContext to get all the initialized parameters -->
+				Enumeration<String> parameterNames = context.getInitParameterNames();
+				while(parameterNames.hasMoreElements()) {
+					String eachName = parameterNames.nextElement();
+					System.out.println("Context param name : "+ eachName);
+					System.out.println("Context param value : "+ context.getInitParameter(eachName));
+				}
+//				example of context parameters -->
+//				ServletContext context = getServletContext(); 	//directly you can also initialize
+				
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				con = DriverManager.getConnection( config.getInitParameter("dbUrl"),
-												   config.getInitParameter("dbUsername"),
-												   config.getInitParameter("dbPassword") );
+				con = DriverManager.getConnection( context.getInitParameter("dbUrl"),
+												   context.getInitParameter("dbUsername"),
+												   context.getInitParameter("dbPassword") );
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
