@@ -23,8 +23,8 @@ public class WelcomeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		String email = request.getParameter("email");;
-		out.print("welcome : "+email);
+		String email = request.getParameter("email");
+		out.print(email +" : "+request.getAttribute("message"));
 	}
 
 }

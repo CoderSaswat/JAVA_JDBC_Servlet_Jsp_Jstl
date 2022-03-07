@@ -1,3 +1,0 @@
-Servlet collaboration
-i. RequestDispatcher (forward())
-ii. sendDirect()

@@ -45,12 +45,13 @@ public class LoginServlet extends HttpServlet {
 			}
 //			out.print(count);
 			if(count == 1) {
+				request.setAttribute("message", "Welcome to iSecure Login System");
 				RequestDispatcher rd = request.getRequestDispatcher("welcome");
 				rd.forward(request, response);
 			}
 			else {
 				out.print("<center><h3>Sorry, username or password incorrect Please try again</h3></center>");
-				RequestDispatcher rd = request.getRequestDispatcher("/login.html");
+				RequestDispatcher rd = request.getRequestDispatcher("login.html");
 				rd.include(request, response);
 			}
 			
