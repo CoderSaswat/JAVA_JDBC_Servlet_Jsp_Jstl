@@ -1,0 +1,5 @@
+Servlet collaboration
+i. RequestDispatcher (forward())
+ii. sendDirect()
+request.setAttribute()
+request.getAttribute()
