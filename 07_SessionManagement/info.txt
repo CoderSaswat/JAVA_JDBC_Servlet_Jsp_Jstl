@@ -1,0 +1,10 @@
+state management using session
+some concept of cookie
+
+HttpSession session = request.getSession();
+session.setAttribute("uname", n);
+
+String n = (String)session.getAttribute("uname");
+
+request.getSession().invalidate();
+response.sendRedirect("login.html");
