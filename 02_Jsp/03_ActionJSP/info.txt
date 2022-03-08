@@ -1,0 +1,4 @@
+jsp action elements
+1-forward
+2-include
+3-bean setProperty,getProperty
