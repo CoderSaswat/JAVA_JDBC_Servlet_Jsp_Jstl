@@ -1,0 +1,4 @@
+basics only
+1-declaration tag	<%!   %>
+2-expression tag	<%=	  %>
+3-scriptlet tag		<%    %>
