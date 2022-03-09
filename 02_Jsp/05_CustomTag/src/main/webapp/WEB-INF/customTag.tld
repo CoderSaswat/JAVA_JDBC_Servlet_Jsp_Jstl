@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib>
+	<tlibversion>2.0</tlibversion>
+	<jspversion>2.0</jspversion>
+	<shortname>userInformation</shortname>
+	<info>this library displays the user information</info>
+	<uri>http://saswat.com</uri>
+	
+	<tag>
+		<name>displayUser</name>
+		<tagclass>com.saswat.customtag.taglib.ResultHandlerNew</tagclass>
+		<info>displays the user information</info>
+	</tag>
+</taglib>
